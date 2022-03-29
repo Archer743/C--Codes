@@ -1,0 +1,10 @@
+- encapsulation <=>
+    -> private modifier
+    -> getters and setters
+
+- abstraction <=>
+    
+
+- inheritance
+
+- polymorphism

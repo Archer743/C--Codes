@@ -2,17 +2,23 @@
 
 using namespace std;
 
-class Employee {
+class AbstractEmployee {  // used as a contract
+    virtual void askForPromotion()=0;
+};
+
+class Employee : AbstractEmployee {
     private:
         string name;
         string company;
         int age;
+        bool promoted;
     
     public:
         Employee(string name, string company, int age) {
             this->name = name;
             this->company = company;
             this->age = age;
+            this->promoted = false;
         }
 
         void helloWorld() {
@@ -48,15 +54,22 @@ class Employee {
         int getAge() {
             return age;
         }
+
+        void askForPromotion() {
+            if (age > 30) {
+                cout << name << " got promoted!" << endl;
+                promoted = true;
+            }else cout << "Nope" << endl;
+        }
 };
+
 
 int main() {
     Employee emp1("Ivan", "YT", 25);
-    emp1.helloWorld();
+    Employee emp2("Zlatan", "YT", 35);
 
-    cout << emp1.getAge() << endl;
-    emp1.setName("Zlatan");
-    cout << emp1.getName() << endl;
+    emp1.askForPromotion();
+    emp2.askForPromotion();
 
     return 0;
 }
